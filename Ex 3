@@ -1,0 +1,37 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <algorithm>
+
+int main() {
+    std::ifstream inputFile("input.txt");
+    if (!inputFile.is_open()) {
+        std::cerr << "Не вдалося відкрити файл input.txt" << std::endl;
+        return 1;
+    }
+
+    std::string text, line;
+    while (std::getline(inputFile, line)) {
+        text += line + "\n";
+    }
+    inputFile.close();
+
+    if (!text.empty() && text.back() == '\n') {
+        text.pop_back();
+    }
+
+    std::reverse(text.begin(), text.end());
+
+    std::ofstream outputFile("output.txt");
+    if (!outputFile.is_open()) {
+        std::cerr << "Не вдалося відкрити файл output.txt" << std::endl;
+        return 1;
+    }
+
+    outputFile << text;
+    outputFile.close();
+
+    std::cout << "Текст успішно оброблено. Результат записано у файл output.txt" << std::endl;
+
+    return 0;
+}
