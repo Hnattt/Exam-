@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+#include <limits> 
+
+using namespace std; 
+
+void ReplaceSecondWithMin(vector<vector<int>>& Matrix) { 
+    int Rows = Matrix.size(); 
+    int Cols = Matrix[0].size(); 
+
+    for (int Col = 0; Col < Cols; Col++) { 
+        int MinVal = numeric_limits<int>::max(); 
+
+        for (int Row = 0; Row < Rows; Row++) {
+            if (Matrix[Row][Col] < MinVal)
+                MinVal = Matrix[Row][Col]; 
+        }
+        if (Rows > 1) Matrix[1][Col] = MinVal; 
+    }
+}
+
+int main() {
+    vector<vector<int>> Matrix = { {3, 8, 5}, {7, 6, 9}, {4, 2, 1} }; 
+
+    ReplaceSecondWithMin(Matrix); 
+
+    cout << "Результат:" << endl;
+    for (auto Row : Matrix) { 
+        for (int Val : Row) 
+            cout << Val << " "; 
+        cout << endl;
+    }
+
+    return 0;
+}
