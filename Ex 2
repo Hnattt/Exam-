@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    cout << "Введіть число N: ";
+    cin >> N;
+    cout << "Числа від 1 до " << N << ", що при діленні на 5 дають остачу 2: ";
+    for (int i = 1; i <= N; i++) {
+        if (i % 5 == 2) {
+            cout << i << " ";
+        }
+    }
+    cout << endl;
+
+    return 0;
+}
