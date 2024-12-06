@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    double num1, num2, result;
+    cout << "Введіть перше дробове число: ";
+    cin >> num1;
+    cout << "Введіть друге дробове число: ";
+    cin >> num2;
+    result = num1 - num2;
+    cout << "Результат віднімання: " << result << endl;
+    return 0;
+}
